@@ -1,0 +1,70 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://WorldEnviorments/water/water_diffuse.png" type="Texture" id=1]
+[ext_resource path="res://WorldEnviorments/water/WaterReflection.gd" type="Script" id=2]
+
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform vec2 scale;
+uniform float y_zoom;
+
+uniform vec4 water_color : hint_color;
+uniform sampler2D noise;
+uniform vec2 distortion_scale;
+uniform float intensity;
+uniform float speed;
+
+uniform float wave_amplitude;
+uniform float wave_speed;
+uniform float wave_period;
+
+void fragment(){
+	
+	float waves = UV.y * scale.y + sin(UV.x * scale.x / wave_period - TIME*wave_speed) * cos(0.2*UV.x*scale.x/wave_period + TIME*wave_speed)
+	* wave_amplitude - wave_amplitude;
+	
+	float distortion = texture(noise, UV * scale * distortion_scale + TIME*speed).x;
+	distortion -= 0.5;
+	
+	float uv_height = SCREEN_PIXEL_SIZE.y / TEXTURE_PIXEL_SIZE.y;
+	vec2 reflected_screenuv = vec2(SCREEN_UV.x - distortion * intensity * y_zoom, SCREEN_UV.y + uv_height * UV.y * scale.y * y_zoom * 3.0);
+	
+//	COLOR = texture(SCREEN_TEXTURE, reflected_screenuv);
+	vec4 reflection = texture(SCREEN_TEXTURE, reflected_screenuv);
+	
+	COLOR.rgb = mix(reflection.rgb, water_color.rgb, water_color.a);
+//	COLOR.rgb = vec3(smoothstep(0.01, 0.03, waves));
+	COLOR.a = smoothstep(0.005, 0.008, waves);
+
+
+}"
+
+[sub_resource type="OpenSimplexNoise" id=2]
+period = 140.0
+
+[sub_resource type="NoiseTexture" id=3]
+seamless = true
+noise = SubResource( 2 )
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 1 )
+shader_param/scale = Vector2( 40.9699, 4.18761 )
+shader_param/y_zoom = 0.0834275
+shader_param/water_color = Color( 0.0392157, 0.0392157, 0.313726, 0.494118 )
+shader_param/distortion_scale = Vector2( 0.5, 0.5 )
+shader_param/intensity = 0.15
+shader_param/speed = 0.05
+shader_param/wave_amplitude = 0.008
+shader_param/wave_speed = 1.0
+shader_param/wave_period = 0.423
+shader_param/noise = SubResource( 3 )
+
+[node name="WaterReflection" type="Sprite"]
+material = SubResource( 4 )
+position = Vector2( 964.904, 729.336 )
+scale = Vector2( 12.8743, 2.62371 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[connection signal="item_rect_changed" from="." to="." method="_on_WaterReflection_item_rect_changed"]

@@ -1,0 +1,50 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://HouseWithDoor.gd" type="Script" id=1]
+[ext_resource path="res://WorldEnviorments/HouseWithDoor/AnimatedHouseDoor.png" type="Texture" id=2]
+[ext_resource path="res://WorldEnviorments/HouseWithDoor/House.png" type="Texture" id=3]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 17.5816, 33.1231 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "openDoor"
+length = 0.55
+tracks/0/type = "value"
+tracks/0/path = NodePath("door:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[node name="HouseWithDoor" type="Node2D"]
+scale = Vector2( 8, 8 )
+script = ExtResource( 1 )
+target_stage = "res://Stages/Stage1.tscn"
+
+[node name="house" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="DoorArea" type="Area2D" parent="."]
+
+[node name="door" type="Sprite" parent="DoorArea"]
+position = Vector2( -26.6697, 30.6652 )
+texture = ExtResource( 2 )
+hframes = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
+position = Vector2( -26.1626, 30.3248 )
+shape = SubResource( 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DoorArea"]
+anims/openDoor = SubResource( 2 )
+
+[connection signal="body_entered" from="DoorArea" to="." method="_on_DoorArea_body_entered"]
+[connection signal="body_exited" from="DoorArea" to="." method="_on_DoorArea_body_exited"]
+[connection signal="animation_finished" from="DoorArea/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Enterin The Skies.mp3-0975aca0224dda2b2143d92fc4c995c2.mp3str"
+
+[deps]
+
+source_file="res://Audio/lvlMusic/Enterin The Skies.mp3"
+dest_files=[ "res://.import/Enterin The Skies.mp3-0975aca0224dda2b2143d92fc4c995c2.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

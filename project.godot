@@ -21,6 +21,7 @@ config/icon="res://icon.png"
 [autoload]
 
 PlayerStats="*res://player/PlayerStats.tscn"
+Time="*res://addons/day_night_cycle/src/Singletons/Time.gd"
 
 [display]
 

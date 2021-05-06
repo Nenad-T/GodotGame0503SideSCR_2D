@@ -44,7 +44,7 @@ var state_night_start_hour: int = 19
 
 # The duration, in in-game seconds, of the time it takes
 # to transition from one state to another.
-var state_transition_seconds: int = 3600
+var state_transition_seconds: int = 18000
 var state_transition_duration: float = state_transition_seconds / \
 		float(IN_GAME_SECONDS_PER_REAL_TIME_SECONDS)
 

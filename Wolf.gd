@@ -111,7 +111,7 @@ func _on_HitBox_area_entered(area):
 	pass
 
 func in_range_of_player(player):
-	if global_position.distance_to(player.global_position) <= 200:
+	if global_position.distance_to(player.global_position) <= 60:
 		return true
 	return false
 

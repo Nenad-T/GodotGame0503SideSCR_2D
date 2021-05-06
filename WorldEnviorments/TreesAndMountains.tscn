@@ -25,12 +25,11 @@ static_moon = false
 texture = ExtResource( 10 )
 
 [node name="Background" type="ParallaxLayer" parent="."]
-visible = false
 motion_mirroring = Vector2( 6000, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background"]
-visible = false
-scale = Vector2( 1.01947, 3.55421 )
+position = Vector2( 0, 1873.13 )
+scale = Vector2( 1.01947, 1.68108 )
 texture = ExtResource( 5 )
 centered = false
 

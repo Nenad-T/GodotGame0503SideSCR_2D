@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://WorldEnviorments/TreesAndMountains.tscn" type="PackedScene" id=1]
 [ext_resource path="res://WorldEnviorments/water/WaterReflection.tscn" type="PackedScene" id=2]
@@ -6,19 +6,17 @@
 [ext_resource path="res://Stages/Stage1.gd" type="Script" id=4]
 [ext_resource path="res://Enemies/wolf/Wolf.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Audio/lvlMusic/Enterin The Skies.mp3" type="AudioStream" id=6]
-[ext_resource path="res://WorldEnviorments/grass/grassTileMap.tscn" type="PackedScene" id=7]
+[ext_resource path="res://WorldEnviorments/grass/tileable-S7002876-grey.png" type="Texture" id=7]
 [ext_resource path="res://WorldEnviorments/grass/grassLine2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://WorldEnviorments/HouseWithDoor/HouseWithDoor.tscn" type="PackedScene" id=9]
 [ext_resource path="res://WorldEnviorments/Weather/src/weather.tscn" type="PackedScene" id=10]
 [ext_resource path="res://addons/day_night_cycle/DayNightCycle/DayNightCycle.tscn" type="PackedScene" id=11]
-[ext_resource path="res://addons/day_night_cycle/MoonLight/MoonLight.tscn" type="PackedScene" id=12]
-[ext_resource path="res://addons/day_night_cycle/MoonLight/moon.png" type="Texture" id=13]
 
 [node name="Stage1" type="Node2D"]
 script = ExtResource( 4 )
 
 [node name="HouseWithDoor" parent="." instance=ExtResource( 9 )]
-position = Vector2( 23192, 1672 )
+position = Vector2( 23144, 2216 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 1681.29, 851 )
@@ -26,20 +24,6 @@ position = Vector2( 1681.29, 851 )
 [node name="DayNightCycle" parent="." instance=ExtResource( 11 )]
 z_index = 10
 delay = 10
-
-[node name="MoonLight" parent="." instance=ExtResource( 12 )]
-visible = false
-show_behind_parent = true
-position = Vector2( 4960, 1416 )
-range_layer_min = -512
-range_layer_max = 512
-move_moon = true
-cycle_sync_node_path = NodePath("../DayNightCycle")
-static_moon = false
-
-[node name="Sprite" type="Sprite" parent="MoonLight"]
-visible = false
-texture = ExtResource( 13 )
 
 [node name="TreesAndMountains" parent="." instance=ExtResource( 1 )]
 
@@ -72,13 +56,14 @@ amount = 500
 lightChangeTime = 2.0
 followNode = NodePath("../Player")
 
+[node name="floor" type="Sprite" parent="."]
+position = Vector2( 12024, 3456 )
+scale = Vector2( 23.4453, 1.34375 )
+texture = ExtResource( 7 )
+
 [node name="WaterReflection" parent="." instance=ExtResource( 2 )]
 position = Vector2( 10360, 3448 )
 scale = Vector2( 31.2451, 5.37505 )
-
-[node name="grassTileMap" parent="." instance=ExtResource( 7 )]
-position = Vector2( 0, 1380 )
-tile_data = PoolIntArray( -4915082, 0, 0, -4652938, 1, 0, -3866522, 0, 0, -3604378, 1, 0, -3538827, 2, 0, -2817962, 0, 0, -2555818, 1, 0, -2490267, 2, 0, -1769402, 0, 0, -1507258, 1, 0, -1441707, 2, 0, -720842, 0, 0, -458698, 1, 0, -393147, 2, 0, 327718, 0, 0, 589862, 1, 0, 655413, 2, 0, 1376278, 0, 0, 1507352, 1, 0, 1703973, 2, 0, 2031648, 2, 0 )
 
 [node name="grassLine2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 0, 1824 )

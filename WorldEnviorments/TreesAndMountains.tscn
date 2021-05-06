@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/Background/TreesAndMountains/middleground (z 0).png" type="Texture" id=1]
 [ext_resource path="res://Assets/Background/TreesAndMountains/bg_1 (z -1).png" type="Texture" id=2]
@@ -7,15 +7,30 @@
 [ext_resource path="res://Assets/Background/TreesAndMountains/Gradient (z -6).png" type="Texture" id=5]
 [ext_resource path="res://Assets/Background/TreesAndMountains/mtn (z -4).png" type="Texture" id=6]
 [ext_resource path="res://Assets/Background/TreesAndMountains/sky (z -3).png" type="Texture" id=7]
+[ext_resource path="res://addons/day_night_cycle/DayNightCycle/DayNightCycle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://addons/day_night_cycle/MoonLight/MoonLight.tscn" type="PackedScene" id=9]
+[ext_resource path="res://addons/day_night_cycle/MoonLight/moon.png" type="Texture" id=10]
 
 [node name="TreesAndMountains" type="ParallaxBackground"]
 
+[node name="MoonLight" parent="." instance=ExtResource( 9 )]
+position = Vector2( 4254.8, 1000 )
+range_layer_min = -512
+range_layer_max = 512
+move_moon = true
+cycle_sync_node_path = NodePath("../DayNightCycle")
+static_moon = false
+
+[node name="Sprite" type="Sprite" parent="MoonLight"]
+texture = ExtResource( 10 )
+
 [node name="Background" type="ParallaxLayer" parent="."]
+visible = false
 motion_mirroring = Vector2( 6000, 0 )
 
 [node name="Sprite" type="Sprite" parent="Background"]
 visible = false
-scale = Vector2( 1.00224, 1.37672 )
+scale = Vector2( 1.01947, 3.55421 )
 texture = ExtResource( 5 )
 centered = false
 
@@ -30,38 +45,41 @@ centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.4, 1 )
-motion_mirroring = Vector2( 5363, 0 )
+motion_mirroring = Vector2( 10726, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer4"]
-scale = Vector2( 1, 1.75378 )
+position = Vector2( 0, 800 )
+scale = Vector2( 2, 1.754 )
 texture = ExtResource( 7 )
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.6, 1 )
-motion_mirroring = Vector2( 5410, 0 )
+motion_mirroring = Vector2( 10820, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
-scale = Vector2( 1, 1.61777 )
+position = Vector2( 0, 900 )
+scale = Vector2( 2, 1.618 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 5948, 0 )
+motion_mirroring = Vector2( 11896, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
-scale = Vector2( 1, 1.30495 )
+position = Vector2( 0, 1000 )
+scale = Vector2( 2, 1.305 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 5252, 0 )
+motion_mirroring = Vector2( 10504, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer5"]
-position = Vector2( 5.33936, 0 )
-scale = Vector2( 1, 0.829349 )
+position = Vector2( 0, 1100 )
+scale = Vector2( 2, 0.829 )
 texture = ExtResource( 4 )
 centered = false
 
@@ -70,5 +88,8 @@ motion_scale = Vector2( 0.9, 1 )
 motion_mirroring = Vector2( 7349, 0 )
 
 [node name="Sprite" type="Sprite" parent="Near"]
+position = Vector2( 0, 1304 )
 texture = ExtResource( 1 )
 centered = false
+
+[node name="DayNightCycle" parent="." instance=ExtResource( 8 )]

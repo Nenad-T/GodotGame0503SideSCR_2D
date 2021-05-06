@@ -88,36 +88,41 @@ height = 243.772
 radius = 172.771
 
 [sub_resource type="CapsuleShape2D" id=4]
-radius = 142.544
-height = 65.7225
+radius = 74.3315
+height = 0.0
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 245.082, 90.1218 )
+extents = Vector2( 71.3113, 48.1535 )
 
 [node name="Wolf" type="KinematicBody2D"]
 collision_layer = 4
 script = ExtResource( 35 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
 frames = SubResource( 1 )
 animation = "idle"
-frame = 11
+frame = 1
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 164.111 )
+position = Vector2( 0, 45.2711 )
 rotation = 1.5708
+scale = Vector2( 0.3186, 0.349011 )
 shape = SubResource( 2 )
 
 [node name="PlayerDetectionZone" parent="." instance=ExtResource( 48 )]
 
 [node name="CollisionShape2D" parent="PlayerDetectionZone" index="0"]
 modulate = Color( 0.317647, 0.901961, 0.0823529, 1 )
+position = Vector2( 0, -118.794 )
 
 [node name="SoftCollision" parent="." instance=ExtResource( 46 )]
+position = Vector2( 0, -125.25 )
 
 [node name="CollisionShape2D" parent="SoftCollision" index="0"]
-position = Vector2( 0, 164.065 )
+position = Vector2( 0, 170.521 )
+scale = Vector2( 0.332941, 0.308808 )
 shape = SubResource( 3 )
 
 [node name="WanderController" parent="." instance=ExtResource( 47 )]
@@ -128,7 +133,7 @@ collision_mask = 0
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 modulate = Color( 0.984314, 0.0235294, 0.0235294, 1 )
-position = Vector2( 0, 164.065 )
+position = Vector2( 0, 45.2711 )
 shape = SubResource( 4 )
 
 [node name="Stats" parent="." instance=ExtResource( 50 )]
@@ -140,7 +145,7 @@ collision_mask = 16
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 modulate = Color( 0.992157, 0.0117647, 0.0117647, 1 )
-position = Vector2( 0, 164.065 )
+position = Vector2( 0, 45.2711 )
 shape = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="."]

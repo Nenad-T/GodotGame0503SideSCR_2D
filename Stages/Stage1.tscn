@@ -57,24 +57,24 @@ lightChangeTime = 2.0
 followNode = NodePath("../Player")
 
 [node name="floor" type="Sprite" parent="."]
-position = Vector2( 12024, 3456 )
+position = Vector2( 12008, 1976 )
 scale = Vector2( 23.4453, 1.34375 )
 texture = ExtResource( 7 )
 
 [node name="WaterReflection" parent="." instance=ExtResource( 2 )]
-position = Vector2( 10360, 3448 )
+position = Vector2( 6616, 2024 )
 scale = Vector2( 31.2451, 5.37505 )
 
 [node name="grassLine2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 0, 1824 )
+position = Vector2( 0, 360 )
 collision_mask = 6
 
 [node name="grassLine3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 8000, 1824 )
+position = Vector2( 8000, 360 )
 collision_mask = 6
 
 [node name="grassLine4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 16000, 1824 )
+position = Vector2( 16000, 360 )
 collision_mask = 6
 
 [connection signal="animation_finished" from="Player/AnimationPlayer" to="Player" method="_on_AnimationPlayer_animation_finished"]

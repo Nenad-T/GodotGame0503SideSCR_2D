@@ -29,11 +29,11 @@
 [ext_resource path="res://HitBoxesAndHurtBoxes/HitBox.tscn" type="PackedScene" id=34]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 112.589, 211.599 )
+extents = Vector2( 43.6021, 65.5872 )
 
 [sub_resource type="CapsuleShape2D" id=2]
-radius = 63.1711
-height = 352.385
+radius = 27.548
+height = 112.038
 
 [sub_resource type="Animation" id=3]
 resource_name = "AttackFull"
@@ -108,8 +108,8 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 188.606
-height = 148.709
+radius = 47.8192
+height = 54.669
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 490.146, 203.696 )
@@ -117,15 +117,15 @@ collision_layer = 2
 script = ExtResource( 33 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 50.5511 )
+position = Vector2( 0, 10.1881 )
 shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 14 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
-zoom = Vector2( 3, 3 )
 limit_left = 0
 limit_top = 0
 
@@ -136,8 +136,9 @@ rotation = 3.14159
 collision_mask = 32
 
 [node name="CollisionShape2D" parent="HitboxPivot/HitBox" index="0"]
-position = Vector2( 315.462, -20.0226 )
+position = Vector2( 77.5257, -10.1879 )
 shape = SubResource( 2 )
+disabled = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 3 )
@@ -151,7 +152,6 @@ collision_mask = 64
 
 [node name="CollisionShape2D" parent="HurtBox" index="0"]
 modulate = Color( 0.984314, 0.00784314, 0.00784314, 1 )
-position = Vector2( 0, 50.5511 )
 shape = SubResource( 6 )
 
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]

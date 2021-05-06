@@ -13,8 +13,16 @@
 
 [node name="TreesAndMountains" type="ParallaxBackground"]
 
+[node name="Background" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2( 1, 1 )
+
+[node name="Sprite" type="Sprite" parent="Background"]
+scale = Vector2( 0.363168, 1.25075 )
+texture = ExtResource( 5 )
+centered = false
+
 [node name="MoonLight" parent="." instance=ExtResource( 9 )]
-position = Vector2( 4254.8, 1000 )
+position = Vector2( 1575.6, 886.5 )
 range_layer_min = -512
 range_layer_max = 512
 move_moon = true
@@ -23,15 +31,6 @@ static_moon = false
 
 [node name="Sprite" type="Sprite" parent="MoonLight"]
 texture = ExtResource( 10 )
-
-[node name="Background" type="ParallaxLayer" parent="."]
-motion_mirroring = Vector2( 6000, 0 )
-
-[node name="Sprite" type="Sprite" parent="Background"]
-position = Vector2( 0, 1873.13 )
-scale = Vector2( 1.01947, 1.68108 )
-texture = ExtResource( 5 )
-centered = false
 
 [node name="Mountains2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.2, 1 )
@@ -44,50 +43,52 @@ centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.4, 1 )
-motion_mirroring = Vector2( 10726, 0 )
+motion_mirroring = Vector2( 1608.9, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer4"]
-position = Vector2( 0, 800 )
-scale = Vector2( 2, 1.754 )
+position = Vector2( 0, 886.5 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 7 )
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.6, 1 )
-motion_mirroring = Vector2( 10820, 0 )
+motion_mirroring = Vector2( 1623, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
-position = Vector2( 0, 900 )
-scale = Vector2( 2, 1.618 )
+position = Vector2( 0, 886.5 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 11896, 0 )
+motion_mirroring = Vector2( 1784.4, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
-position = Vector2( 0, 1000 )
-scale = Vector2( 2, 1.305 )
+show_behind_parent = true
+position = Vector2( -28.2843, 844.357 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 10504, 0 )
+motion_mirroring = Vector2( 1575.6, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer5"]
-position = Vector2( 0, 1100 )
-scale = Vector2( 2, 0.829 )
+position = Vector2( 0, 620.374 )
+scale = Vector2( 0.3, 0.3 )
 texture = ExtResource( 4 )
 centered = false
 
 [node name="Near" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.9, 1 )
-motion_mirroring = Vector2( 7349, 0 )
+motion_mirroring = Vector2( 3674.5, 0 )
 
 [node name="Sprite" type="Sprite" parent="Near"]
-position = Vector2( 0, 1304 )
+position = Vector2( 0, 570 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 1 )
 centered = false
 

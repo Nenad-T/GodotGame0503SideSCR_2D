@@ -7,3 +7,6 @@ extends Node2D
 #eventualno ako ne se gledaat da nemaat collision
 func _ready():
 	$AudioStreamPlayer.play()
+#func _input(event):
+#	if Input.is_action_pressed("ui_down"):
+#		$TreesAndMountains/debug_overlay.show()

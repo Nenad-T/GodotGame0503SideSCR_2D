@@ -13,6 +13,7 @@ onready var playerStats = PlayerStats
 onready var hurtbox = $HurtBox
 onready var attackSound = $AttackSound
 
+export (String, FILE, "*.tscn") var game_over_screen
 export var Speed = 800
 export var Jumpforce = -3000
 export var Gravity = 100
@@ -23,7 +24,8 @@ var state = IDLE
 
 
 func _ready():
-#	playerStats.connect("no_health", self, "queue_free")
+	print(playerStats.health)
+	playerStats.connect("no_health", self, "no_health")
 	$HitboxPivot/HitBox/CollisionShape2D.disabled = true
 
 func _physics_process(delta):
@@ -65,7 +67,7 @@ func idle_state():
 
 func _on_HurtBox_area_entered(area):
 	playerStats.health -= area.damage
-	hurtbox.start_invincibility(0.6)
+	hurtbox.start_invincibility(0.8)
 
 func get_user_input():
 	if !is_attacking:
@@ -94,3 +96,16 @@ func _on_AnimationPlayer_animation_finished(anim_name):
 	if(anim_name == "Attack"):
 		is_attacking = false
 		velocity = velocity * 0.8
+
+
+func _on_HurtBox_invincibility_started():
+	sprite.modulate = Color(1.0, 0.0, 0.0)
+
+
+func _on_HurtBox_invincibility_ended():
+	sprite.modulate = Color(1.0, 1.0, 1.0)
+
+func no_health():
+	playerStats.health = playerStats.max_health
+	if get_tree().change_scene(game_over_screen) != OK:
+		print ("An unexpected error occured when trying to switch scene")

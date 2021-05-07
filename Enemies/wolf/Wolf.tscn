@@ -64,6 +64,11 @@ animations = [ {
 "name": "run",
 "speed": 10.0
 }, {
+"frames": [ ExtResource( 34 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ) ],
+"loop": true,
+"name": "dead",
+"speed": 10.0
+}, {
 "frames": [ ExtResource( 9 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 19 ), ExtResource( 14 ), ExtResource( 2 ), ExtResource( 20 ) ],
 "loop": true,
 "name": "attack",
@@ -72,11 +77,6 @@ animations = [ {
 "frames": [ ExtResource( 36 ), ExtResource( 45 ), ExtResource( 42 ), ExtResource( 37 ), ExtResource( 43 ), ExtResource( 44 ), ExtResource( 38 ), ExtResource( 33 ) ],
 "loop": true,
 "name": "hurt",
-"speed": 10.0
-}, {
-"frames": [ ExtResource( 34 ), ExtResource( 31 ), ExtResource( 32 ), ExtResource( 27 ), ExtResource( 30 ), ExtResource( 28 ), ExtResource( 26 ), ExtResource( 29 ) ],
-"loop": true,
-"name": "dead",
 "speed": 10.0
 } ]
 
@@ -92,7 +92,7 @@ radius = 74.3315
 height = 0.0
 
 [sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 71.3113, 48.1535 )
+extents = Vector2( 72.5532, 24.6165 )
 
 [node name="Wolf" type="KinematicBody2D"]
 collision_layer = 4
@@ -140,12 +140,13 @@ shape = SubResource( 4 )
 max_health = 3
 
 [node name="HitBox" parent="." instance=ExtResource( 51 )]
+position = Vector2( 103.314, 0 )
 collision_layer = 64
 collision_mask = 16
 
 [node name="CollisionShape2D" parent="HitBox" index="0"]
 modulate = Color( 0.992157, 0.0117647, 0.0117647, 1 )
-position = Vector2( 0, 45.2711 )
+position = Vector2( -103.314, 45.271 )
 shape = SubResource( 5 )
 
 [node name="Tween" type="Tween" parent="."]
@@ -154,7 +155,6 @@ shape = SubResource( 5 )
 [connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
 [connection signal="no_health" from="Stats" to="." method="_on_Stats_no_health"]
-[connection signal="area_entered" from="HitBox" to="." method="_on_HitBox_area_entered"]
 
 [editable path="PlayerDetectionZone"]
 [editable path="SoftCollision"]

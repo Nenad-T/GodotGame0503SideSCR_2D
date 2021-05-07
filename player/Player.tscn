@@ -31,7 +31,7 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 43.6021, 65.5872 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 32.7742, 69.687 )
 
 [sub_resource type="Animation" id=3]
@@ -107,13 +107,14 @@ tracks/1/keys = {
 }
 
 [sub_resource type="CapsuleShape2D" id=6]
-radius = 47.8192
-height = 54.669
+radius = 37.3313
+height = 43.8848
 
 [node name="Player" type="KinematicBody2D"]
 position = Vector2( 490.146, 203.696 )
 collision_layer = 2
 script = ExtResource( 33 )
+game_over_screen = "res://Stages/Stage1.tscn"
 Speed = 400
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
@@ -122,7 +123,7 @@ shape = SubResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 0.3, 0.3 )
-texture = ExtResource( 14 )
+texture = ExtResource( 5 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
@@ -137,8 +138,7 @@ collision_mask = 32
 
 [node name="CollisionShape2D" parent="HitboxPivot/HitBox" index="0"]
 position = Vector2( 56.4926, -10.1879 )
-shape = SubResource( 7 )
-disabled = true
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Attack = SubResource( 3 )
@@ -158,6 +158,8 @@ shape = SubResource( 6 )
 stream = ExtResource( 3 )
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
+[connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
 
 [editable path="HitboxPivot/HitBox"]
 [editable path="HurtBox"]

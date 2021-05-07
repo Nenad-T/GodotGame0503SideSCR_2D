@@ -5,7 +5,7 @@
 [ext_resource path="res://WorldEnviorments/HouseWithDoor/House.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 17.5816, 33.1231 )
+extents = Vector2( 7.34528, 14.9588 )
 
 [sub_resource type="Animation" id=2]
 resource_name = "openDoor"
@@ -29,17 +29,19 @@ script = ExtResource( 1 )
 target_stage = "res://Stages/Stage1.tscn"
 
 [node name="house" type="Sprite" parent="."]
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 
 [node name="DoorArea" type="Area2D" parent="."]
 
 [node name="door" type="Sprite" parent="DoorArea"]
-position = Vector2( -26.6697, 30.6652 )
+position = Vector2( -13.2028, 15.4119 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 hframes = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DoorArea"]
-position = Vector2( -26.1626, 30.3248 )
+position = Vector2( -13.1183, 16.383 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="DoorArea"]

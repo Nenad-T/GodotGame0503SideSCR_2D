@@ -22,9 +22,8 @@ texture = ExtResource( 5 )
 centered = false
 
 [node name="MoonLight" parent="." instance=ExtResource( 9 )]
-position = Vector2( 518.461, 497.624 )
-range_layer_min = -512
-range_layer_max = 512
+position = Vector2( 1438.96, 690.741 )
+range_layer_min = -1
 move_moon = true
 cycle_sync_node_path = NodePath("../DayNightCycle")
 static_moon = false
@@ -34,54 +33,55 @@ scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 10 )
 
 [node name="Mountains2" type="ParallaxLayer" parent="."]
+visible = false
 motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 2618, 0 )
 
 [node name="Sprite" type="Sprite" parent="Mountains2"]
+visible = false
 light_mask = 2
-position = Vector2( -264.285, 796.63 )
+position = Vector2( 1011.48, 436.707 )
 texture = ExtResource( 6 )
 centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.4, 1 )
-motion_mirroring = Vector2( 1608.8, 0 )
+motion_mirroring = Vector2( 5363, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer4"]
 light_mask = 2
-position = Vector2( 0, 886.5 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 0, 353.245 )
 texture = ExtResource( 7 )
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.6, 1 )
-motion_mirroring = Vector2( 1623, 0 )
+motion_mirroring = Vector2( 2705, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
-position = Vector2( 0, 886.5 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 0, 690.741 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 1784.4, 0 )
+motion_mirroring = Vector2( 2974, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
 show_behind_parent = true
-position = Vector2( -28.2843, 844.357 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 0, 622.878 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
 centered = false
 
 [node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 1575.6, 0 )
+motion_mirroring = Vector2( 2626, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer5"]
-position = Vector2( 0, 620.374 )
-scale = Vector2( 0.3, 0.3 )
+position = Vector2( 0, 353.245 )
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 4 )
 centered = false
 
@@ -97,3 +97,4 @@ texture = ExtResource( 1 )
 centered = false
 
 [node name="DayNightCycle" parent="." instance=ExtResource( 8 )]
+delay = 100

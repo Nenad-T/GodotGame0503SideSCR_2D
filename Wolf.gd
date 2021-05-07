@@ -95,20 +95,16 @@ func _on_Stats_no_health():
 
 func _on_HurtBox_area_entered(area):
 	stats.health -= area.damage
-	hurtbox.start_invincibility(0.8)
+	hurtbox.start_invincibility(1.0)
 #	knockback = -(global_position.direction_to(area.global_position)) * 1200
 	var new_position = global_position
 	if position.x > area.global_position.x:
-		new_position.x += 500
+		new_position.x += 250
 	elif position.x < area.global_position.x:
-		new_position.x -= 500
-	$Tween.interpolate_property(self, 'position', global_position, new_position, 0.8, Tween.TRANS_QUAD, Tween.EASE_IN_OUT)
+		new_position.x -= 250
+	$Tween.interpolate_property(self, 'position', global_position, new_position, 0.8, Tween.TRANS_LINEAR, Tween.EASE_IN_OUT)
 	$Tween.start()
 
-
-func _on_HitBox_area_entered(area):
-#	state = ATTACK
-	pass
 
 func in_range_of_player(player):
 	if global_position.distance_to(player.global_position) <= 60:
@@ -125,3 +121,5 @@ func _on_HurtBox_invincibility_started():
 func _on_HurtBox_invincibility_ended():
 	sprite.modulate = Color(1.0, 1.0, 1.0)
 	geting_attacked = false
+
+

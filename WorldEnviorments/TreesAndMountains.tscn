@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/Background/TreesAndMountains/middleground (z 0).png" type="Texture" id=1]
 [ext_resource path="res://Assets/Background/TreesAndMountains/bg_1 (z -1).png" type="Texture" id=2]
@@ -8,19 +8,32 @@
 [ext_resource path="res://Assets/Background/TreesAndMountains/mtn (z -4).png" type="Texture" id=6]
 [ext_resource path="res://Assets/Background/TreesAndMountains/sky (z -3).png" type="Texture" id=7]
 [ext_resource path="res://addons/day_night_cycle/DayNightCycle/DayNightCycle.tscn" type="PackedScene" id=8]
+[ext_resource path="res://WorldEnviorments/TreesAndMountains.gd" type="Script" id=9]
 
 [node name="TreesAndMountains" type="ParallaxBackground"]
+script = ExtResource( 9 )
 
 [node name="Background" type="ParallaxLayer" parent="."]
+visible = false
 motion_mirroring = Vector2( 1, 1 )
 
 [node name="Sprite" type="Sprite" parent="Background"]
-scale = Vector2( 0.363168, 1.25075 )
+texture = ExtResource( 5 )
+centered = false
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+scale = Vector2( 0.170667, 0.115702 )
 texture = ExtResource( 5 )
 centered = false
 
 [node name="Mountains2" type="ParallaxLayer" parent="."]
-visible = false
 motion_scale = Vector2( 0.2, 1 )
 motion_mirroring = Vector2( 2618, 0 )
 
@@ -33,54 +46,50 @@ centered = false
 
 [node name="ParallaxLayer4" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.4, 1 )
-motion_mirroring = Vector2( 5363, 0 )
+motion_mirroring = Vector2( 1072.6, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer4"]
 light_mask = 2
-position = Vector2( 0, 353.245 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 7 )
 centered = false
 
 [node name="ParallaxLayer3" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.6, 1 )
-motion_mirroring = Vector2( 2705, 0 )
+motion_mirroring = Vector2( 1082, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer3"]
-position = Vector2( 0, 690.741 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 centered = false
 
 [node name="ParallaxLayer2" type="ParallaxLayer" parent="."]
 motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 2974, 0 )
+motion_mirroring = Vector2( 1189.6, 0 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer2"]
 show_behind_parent = true
-position = Vector2( 0, 622.878 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 2 )
 centered = false
 
-[node name="ParallaxLayer5" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.8, 1 )
-motion_mirroring = Vector2( 2626, 0 )
-
-[node name="Sprite" type="Sprite" parent="ParallaxLayer5"]
-position = Vector2( 0, 353.245 )
-scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 4 )
-centered = false
-
 [node name="Near" type="ParallaxLayer" parent="."]
-motion_scale = Vector2( 0.9, 1 )
-motion_mirroring = Vector2( 3674.5, 0 )
+motion_scale = Vector2( 0.8, 1 )
+motion_mirroring = Vector2( 1469.8, 0 )
 
 [node name="Sprite" type="Sprite" parent="Near"]
 light_mask = 2
-position = Vector2( 0, 570 )
-scale = Vector2( 0.5, 0.5 )
+scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 1 )
+centered = false
+
+[node name="Close" type="ParallaxLayer" parent="."]
+motion_scale = Vector2( 0.9, 1 )
+motion_mirroring = Vector2( 1050.4, 0 )
+
+[node name="Sprite" type="Sprite" parent="Close"]
+scale = Vector2( 0.2, 0.2 )
+texture = ExtResource( 4 )
 centered = false
 
 [node name="DayNightCycle" parent="." instance=ExtResource( 8 )]

@@ -16,30 +16,30 @@
 script = ExtResource( 4 )
 
 [node name="HouseWithDoor" parent="." instance=ExtResource( 9 )]
-position = Vector2( 22256, 968 )
+position = Vector2( 23568, -40 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
-position = Vector2( 1184, 992 )
+position = Vector2( 594.8, 370 )
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Wolf" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 2618, 785 )
+position = Vector2( 2176, 436.707 )
 
 [node name="Wolf2" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 6544.98, 1055 )
+position = Vector2( 4288, 490 )
 
 [node name="Wolf3" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 17173.5, 1027.6 )
+position = Vector2( 15864, 376 )
 
 [node name="Wolf5" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 18834.8, 1055 )
+position = Vector2( 17952, 389.271 )
 
 [node name="Wolf6" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 14151.4, 1027.6 )
+position = Vector2( 13408, 304 )
 
 [node name="Wolf4" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 8969.03, 1027.6 )
+position = Vector2( 8016, 360 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )
@@ -50,36 +50,37 @@ followNode = NodePath("../Player")
 
 [node name="floor" type="Sprite" parent="."]
 light_mask = 2
-position = Vector2( 12014, 1755.75 )
+position = Vector2( 0, 680 )
 scale = Vector2( 23.4648, 0.914551 )
 texture = ExtResource( 7 )
+centered = false
 
 [node name="WaterReflection" parent="." instance=ExtResource( 2 )]
-position = Vector2( 6616, 1768 )
+position = Vector2( 6616, 1140 )
 scale = Vector2( 31.2451, 3.43752 )
 
 [node name="grassLine2" parent="." instance=ExtResource( 8 )]
-position = Vector2( 0, 820 )
+position = Vector2( 0, 200 )
 collision_mask = 6
 
 [node name="grassLine3" parent="." instance=ExtResource( 8 )]
-position = Vector2( 4000, 820 )
+position = Vector2( 4000, 200 )
 collision_mask = 6
 
 [node name="grassLine4" parent="." instance=ExtResource( 8 )]
-position = Vector2( 8000, 820 )
+position = Vector2( 8000, 200 )
 collision_mask = 6
 
 [node name="grassLine5" parent="." instance=ExtResource( 8 )]
-position = Vector2( 12000, 820 )
+position = Vector2( 12000, 200 )
 collision_mask = 6
 
 [node name="grassLine6" parent="." instance=ExtResource( 8 )]
-position = Vector2( 16000, 820 )
+position = Vector2( 16000, 200 )
 collision_mask = 6
 
 [node name="grassLine7" parent="." instance=ExtResource( 8 )]
-position = Vector2( 20000, 820 )
+position = Vector2( 20000, 200 )
 collision_mask = 6
 
 [node name="DayNightCycle" parent="." instance=ExtResource( 11 )]

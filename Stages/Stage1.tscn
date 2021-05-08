@@ -50,8 +50,8 @@ followNode = NodePath("../Player")
 
 [node name="floor" type="Sprite" parent="."]
 light_mask = 2
-position = Vector2( 12024, 1760 )
-scale = Vector2( 23.4453, 0.90625 )
+position = Vector2( 12014, 1755.75 )
+scale = Vector2( 23.4648, 0.914551 )
 texture = ExtResource( 7 )
 
 [node name="WaterReflection" parent="." instance=ExtResource( 2 )]

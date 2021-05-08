@@ -90,6 +90,8 @@ func get_user_input():
 				velocity.y = Jumpforce
 		if Input.is_action_just_pressed("attack"):
 			state = ATTACK
+#		if Input.is_action_just_pressed("ShowInventory"):
+#			show_inventory()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	state = IDLE
@@ -109,3 +111,7 @@ func no_health():
 	playerStats.health = playerStats.max_health
 	if get_tree().change_scene(game_over_screen) != OK:
 		print ("An unexpected error occured when trying to switch scene")
+
+func show_inventory():
+	get_tree().paused = !get_tree().paused
+	$Inventory/InventoryContainer.visible = !$Inventory/InventoryContainer.visible

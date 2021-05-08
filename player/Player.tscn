@@ -1,8 +1,9 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Assets/PlayerSprites/run/k6.png" type="Texture" id=1]
 [ext_resource path="res://HitBoxesAndHurtBoxes/HurtBox.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Audio/SoundEffects/knifeSlice.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Inventory/Inventory.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/PlayerSprites/attack/a1.png" type="Texture" id=5]
 [ext_resource path="res://Assets/PlayerSprites/attack/a5.png" type="Texture" id=6]
 [ext_resource path="res://Assets/PlayerSprites/attack/a3.png" type="Texture" id=9]
@@ -157,9 +158,15 @@ shape = SubResource( 6 )
 [node name="AttackSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )
 
+[node name="Inventory" parent="." instance=ExtResource( 4 )]
+
+[node name="InventoryContainer" parent="Inventory" index="0"]
+visible = false
+
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
 [connection signal="invincibility_ended" from="HurtBox" to="." method="_on_HurtBox_invincibility_ended"]
 [connection signal="invincibility_started" from="HurtBox" to="." method="_on_HurtBox_invincibility_started"]
 
 [editable path="HitboxPivot/HitBox"]
 [editable path="HurtBox"]
+[editable path="Inventory"]

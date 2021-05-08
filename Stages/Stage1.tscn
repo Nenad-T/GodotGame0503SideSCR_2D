@@ -92,4 +92,5 @@ delay = 100
 [editable path="Player"]
 [editable path="Player/HitboxPivot/HitBox"]
 [editable path="Player/HurtBox"]
+[editable path="Player/Inventory"]
 [editable path="WaterReflection"]

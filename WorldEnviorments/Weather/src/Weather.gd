@@ -34,8 +34,8 @@ func _ready() -> void:
 	change_weather()
 	darkness_position()
 	position = get_viewport_transform().get_origin() + Vector2(get_viewport_rect().size.x / 2, 0) # Initially positions the emiter in the top center of the screen
-	snow.process_material.emission_box_extents.x = get_viewport_rect().size.x * 2 # Sets emiter width to N times the screen size
-	rain.process_material.emission_box_extents.x = get_viewport_rect().size.x * 2 # Sets emiter width to N times the screen size
+	snow.process_material.emission_box_extents.x = get_viewport_rect().size.x * 6 # Sets emiter width to N times the screen size
+	rain.process_material.emission_box_extents.x = get_viewport_rect().size.x * 6 # Sets emiter width to N times the screen size
 	
 func _physics_process(_delta: float) -> void:
 	if follow:

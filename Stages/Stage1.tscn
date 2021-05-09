@@ -16,7 +16,7 @@
 script = ExtResource( 4 )
 
 [node name="HouseWithDoor" parent="." instance=ExtResource( 9 )]
-position = Vector2( 23568, -40 )
+position = Vector2( 23400, 384 )
 
 [node name="Player" parent="." instance=ExtResource( 3 )]
 position = Vector2( 594.8, 370 )
@@ -27,19 +27,19 @@ position = Vector2( 594.8, 370 )
 position = Vector2( 2176, 436.707 )
 
 [node name="Wolf2" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 4288, 490 )
+position = Vector2( 2512, 448 )
 
 [node name="Wolf3" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 15864, 376 )
+position = Vector2( 3056, 400 )
 
 [node name="Wolf5" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 17952, 389.271 )
+position = Vector2( 3920, 296 )
 
 [node name="Wolf6" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 13408, 304 )
+position = Vector2( 3888, 311.457 )
 
 [node name="Wolf4" parent="Enemies" instance=ExtResource( 5 )]
-position = Vector2( 8016, 360 )
+position = Vector2( 3088, 208 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 6 )

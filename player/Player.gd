@@ -19,7 +19,7 @@ export var Jumpforce = -3000
 export var Gravity = 100
 
 var velocity = Vector2.ZERO
-var is_attacking = false
+var isAbleToMove = true
 var state = IDLE
 
 
@@ -27,6 +27,8 @@ func _ready():
 	print(playerStats.health)
 	playerStats.connect("no_health", self, "no_health")
 	$HitboxPivot/HitBox/CollisionShape2D.disabled = true
+	hurtbox.monitorable = true
+	hurtbox.monitoring = true
 
 func _physics_process(delta):
 	velocity.y += Gravity
@@ -36,7 +38,7 @@ func _physics_process(delta):
 		IDLE:
 			idle_state()
 		MOVE:
-			move_state(delta)
+			move_state()
 		DASH:
 			dash_state()
 		ATTACK:
@@ -46,17 +48,22 @@ func move():
 	velocity = move_and_slide(velocity, Vector2.UP)
 	velocity.x = lerp(velocity.x, 0, 0.3)
 
-func move_state(delta):
+func move_state():
 	move()
 	animationPlayer.play("Move")
 
 func attack_state():
-	is_attacking = true
+	isAbleToMove = false
 	animationPlayer.play("Attack")
 	attackSound.play()
 
 func dash_state():
-	pass
+	isAbleToMove = false
+	if sprite.flip_h:
+		sprite.offset.x = -600
+	else:
+		sprite.offset.x = 600
+	animationPlayer.play("Dash")
 
 func jump_state():
 	if is_on_floor():
@@ -68,9 +75,10 @@ func idle_state():
 func _on_HurtBox_area_entered(area):
 	playerStats.health -= area.damage
 	hurtbox.start_invincibility(0.8)
+	print(playerStats.health)
 
 func get_user_input():
-	if !is_attacking:
+	if isAbleToMove:
 		if Input.is_action_pressed("ui_right"):
 			state = MOVE
 			sprite.flip_h = false
@@ -85,19 +93,24 @@ func get_user_input():
 			velocity.x = -Speed
 		elif Input.is_action_just_released("ui_left"):
 			state = IDLE
-		if Input.is_action_just_pressed("ui_select"):
-			if is_on_floor():
-				velocity.y = Jumpforce
+		if Input.is_action_pressed("ui_select"):
+			state = DASH
 		if Input.is_action_just_pressed("attack"):
 			state = ATTACK
-#		if Input.is_action_just_pressed("ShowInventory"):
-#			show_inventory()
 
 func _on_AnimationPlayer_animation_finished(anim_name):
 	state = IDLE
 	if(anim_name == "Attack"):
-		is_attacking = false
+		isAbleToMove = true
 		velocity = velocity * 0.8
+	if(anim_name == "Dash"):
+		sprite.offset.x = 0
+		if sprite.flip_h:
+			global_position.x -= 200
+		else:
+			global_position.x += 200
+		$Camera2D.position.x = 0
+		isAbleToMove = true
 
 
 func _on_HurtBox_invincibility_started():

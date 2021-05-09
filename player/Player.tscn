@@ -130,6 +130,7 @@ texture = ExtResource( 5 )
 current = true
 limit_left = 0
 limit_top = 0
+limit_bottom = 800
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 rotation = 3.14159
